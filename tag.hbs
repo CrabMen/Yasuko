@@ -1,0 +1,20 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! If we have a tag cover, display that - else blog cover - else nothing }}
+    <header id="header" {{#if tag.feature_image}}data-url="{{img_url tag.feature_image}}"{{else}}data-url="https://img.halfrost.com/Blog/ArticleTitleImage/tagbackground-cover1.jpg"{{/if}} class="home-header lazy blog-background banner-mask">
+        <div class="header-wrap">
+        <div class="home-info-container">
+            <a href="{{@blog.url}}"><h2>Every thing about</h2></a>
+            <h4>「{{tag.name}}」</h4>
+        </div>
+    </header>
+
+
+{{! The main content area on the homepage }}
+<main class="content" id="main" role="main">
+
+    {{! The tag below includes the post loop - partials/loop.hbs }}
+    {{> "loop"}}
+
+</main>
